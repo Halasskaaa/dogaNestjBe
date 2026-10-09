@@ -1,5 +1,6 @@
-import { Controller, Get, Query, Render } from '@nestjs/common';
+import { Body, Controller, Get, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service.js';
+
 
 
 @Controller()
@@ -23,9 +24,20 @@ export class AppController {
       category: category,
       products: category 
         ? this.appService.products.filter(product => product.category === category)
-        : this.appService.products.sort((a, b) => a.stock - b.stock)
+        : this.appService.products.sort((a, b) => b.stock - a.stock)
     };
   }
+
+  
+  // @Get('new')
+  // @Render('new')
+  // getAddNew(@Body() body: CreateProductDto ) {
+
+  //   return {
+
+  //   }
+    
+  // }
 
 
 

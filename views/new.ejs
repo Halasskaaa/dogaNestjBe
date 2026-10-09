@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <a href="/">Főoldal</a>    
+    <a href="/filter">Szűrés</a>
+
+    <form action="" method="post">
+        <input type="string" name="name">
+        <select>
+            <option value="elektronika" <%= category === 'elektronika' ? 'selected' : '' %>>Electronics</option>
+            <option value="ruházat" <%= category === 'ruházat' ? 'selected' : '' %>>Clothing</option>
+            <option value="könyv" <%= category === 'könyv' ? 'selected' : '' %>>Books</option>
+            <option value="játék" <%= category === 'játék' ? 'selected' : '' %>>Toys</option>
+        </select>
+        <input type="number" value="price">
+        <input type="number" value="stock">
+        <button type="submit"></button>
+    </form>
+    
+</body>
+</html>
