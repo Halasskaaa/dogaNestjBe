@@ -25,7 +25,7 @@
         </thead>
         <tbody>
             <% products.forEach(product => { %>
-                <tr class="<%= product.stock < 5 ? 'out-of-stock' : '' %>">
+                <tr class="<%= product.stock < 5 ? 'fogyoban' : '' %>">
                     <td><%= product.name %></td>
                     <td><%= product.category %></td>
                     <td><%= product.price %></td>

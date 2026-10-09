@@ -13,7 +13,20 @@
 
     <a href="/">Főoldal</a>
     <a href="/new">Új termék</a>
-    
+  
+    <form action="/filter" method="get">
+        <label for="category">Kategória:</label>
+        <select id="category" name="category" value="<%= category %>">
+            <option value="">Összes</option>
+            <option value="elektronika" <%= category === 'elektronika' ? 'selected' : '' %>>Electronics</option>
+            <option value="ruházat" <%= category === 'ruházat' ? 'selected' : '' %>>Clothing</option>
+            <option value="könyv" <%= category === 'könyv' ? 'selected' : '' %>>Books</option>
+            <option value="játék" <%= category === 'játék' ? 'selected' : '' %>>Toys</option>
+        </select>
+        <!-- <input type="text" id="category" name="category" value="<%= category %>"> -->
+        <button type="submit">Szűrés</button>
+    </form>
+
     <table>
         <thead>
             <tr>

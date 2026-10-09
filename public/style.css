@@ -3,7 +3,7 @@ body {
     color:rgb(58, 46, 135);
 }
 
-out-of-stock {
+.fogyoban {
     color: red;
     font-weight: italic;
 }

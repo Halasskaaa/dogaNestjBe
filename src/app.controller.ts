@@ -1,4 +1,4 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service.js';
 
 
@@ -17,10 +17,13 @@ export class AppController {
 
   @Get('filter')
   @Render('filter')
-  getFilter() {
+  getFilter(@Query('category') category: string) {
     return { 
       title: 'Szűrés',
-      products: this.appService.products.sort((a, b) => a.name.localeCompare(b.name))
+      category: category,
+      products: category 
+        ? this.appService.products.filter(product => product.category === category)
+        : this.appService.products.sort((a, b) => a.stock - b.stock)
     };
   }
 
