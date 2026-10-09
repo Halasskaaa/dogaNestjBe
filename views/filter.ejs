@@ -18,10 +18,10 @@
         <label for="category">Kategória:</label>
         <select id="category" name="category" value="<%= category %>">
             <option value="">Összes</option>
-            <option value="elektronika" <%= category === 'elektronika' ? 'selected' : '' %>>Electronics</option>
-            <option value="ruházat" <%= category === 'ruházat' ? 'selected' : '' %>>Clothing</option>
-            <option value="könyv" <%= category === 'könyv' ? 'selected' : '' %>>Books</option>
-            <option value="játék" <%= category === 'játék' ? 'selected' : '' %>>Toys</option>
+            <option value="elektronika" <%= category === 'elektronika' ? 'selected' : '' %>>Elektronika</option>
+            <option value="ruházat" <%= category === 'ruházat' ? 'selected' : '' %>>Ruházat</option>
+            <option value="könyv" <%= category === 'könyv' ? 'selected' : '' %>>Könyv</option>
+            <option value="játék" <%= category === 'játék' ? 'selected' : '' %>>Játék</option>
         </select>
         <!-- <input type="text" id="category" name="category" value="<%= category %>"> -->
         <button type="submit">Szűrés</button>
@@ -30,15 +30,15 @@
     <table>
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Stock</th>
+                <th>Termék neve</th>
+                <th>Kategória</th>
+                <th>Ár</th>
+                <th>Raktárkészlet</th>
             </tr>
         </thead>
         <tbody>
             <% products.forEach(product => { %>
-                <tr class="<%= product.stock === 0 ? 'fogyoban' : '' %>">
+                <tr class="<%= product.stock < 5 ? 'fogyoban' : '' %>">
                     <td><%= product.name %></td>
                     <td><%= product.category %></td>
                     <td><%= product.price %></td>
