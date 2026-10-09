@@ -1,5 +1,7 @@
 import { Body, Controller, Get, Query, Render } from '@nestjs/common';
 import { AppService } from './app.service.js';
+import {CreateProductDto} from './dto.js'
+import { Product } from './termek.js';
 
 
 
@@ -29,19 +31,22 @@ export class AppController {
   }
 
   
-  // @Get('new')
-  // @Render('new')
-  // getAddNew(@Body() body: CreateProductDto ) {
+  @Get('new')
+  @Render('new')
+  getAddNew(@Body() body: CreateProductDto )
+  {
+    const newProduct : Product = {
+      name: body.name,
+      category: body.category,
+      price: body.price,
+      stock: body.stock
+    }
+    this.appService.products.push(newProduct)
 
-  //   return {
-
-  //   }
-    
-  // }
-
-
-
-
+    return{
+      success:true
+    }
+  }
 };
   
 
