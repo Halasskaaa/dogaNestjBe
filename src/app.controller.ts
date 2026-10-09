@@ -3,8 +3,6 @@ import { AppService } from './app.service.js';
 import {CreateProductDto} from './dto.js'
 import { Product } from './termek.js';
 
-
-
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -14,7 +12,7 @@ export class AppController {
   getHello() {
     return { 
       title: 'Termékek listája',
-      products: this.appService.products.sort((a, b) => a.name.localeCompare(b.name))
+      products: this.appService.products.sort((a, b) => a.price - b.price)
     };
   }
 
@@ -30,7 +28,6 @@ export class AppController {
     };
   }
 
-  
   @Get('new')
   @Render('new')
   getAddNew(@Body() body: CreateProductDto )
